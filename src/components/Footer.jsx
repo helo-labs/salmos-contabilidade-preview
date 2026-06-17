@@ -1,5 +1,6 @@
 import { MapPin, Phone, Clock, Facebook, Instagram, Linkedin, Mail } from './Icons'
 import { wa, WA_MSG, CONTACT, SOCIAL } from '../constants'
+import logo from '../assets/salmos.png'
 import s from './Footer.module.css'
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
         {/* ── Coluna 1: brand ── */}
         <div className={s.brand}>
           <a href="#" className={s.logo} aria-label="Topo da página">
-            <img src="/salmos.png" alt="Salmos Contabilidade" style={{ height: '36px', width: 'auto', borderRadius: '8px' }} />
+           <img src={logo} alt="Salmos Contabilidade" style={{ height: '36px', width: 'auto', borderRadius: '8px' }} />
             <div>
               <div className={s.logoName}>SALMOS</div>
               <span className={s.logoSub}>CONTABILIDADE</span>

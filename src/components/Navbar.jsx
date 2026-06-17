@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { MessageCircle, Menu, X, Facebook, Instagram, Linkedin } from './Icons'
 import { wa, WA_MSG, SOCIAL } from '../constants'
+import logo from '../assets/salmos.png'
 import s from './Navbar.module.css'
 
 const LINKS = [
@@ -28,7 +29,7 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <a href="#" className={s.logo} aria-label="Salmos Contabilidade — início">
-          <img src="/salmos.png" alt="Salmos Contabilidade" style={{ height: '36px', width: 'auto', borderRadius: '8px' }} />
+          <img src={logo} alt="Salmos Contabilidade" style={{ height: '36px', width: 'auto', borderRadius: '8px' }} />
           <div>
             <div className={s.logoName}>SALMOS</div>
             <span className={s.logoSub}>CONTABILIDADE</span>

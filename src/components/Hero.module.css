@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
-  align-items: center;
+  align-items: stretch;
 }
 @media (min-width: 1024px) { .left { align-items: flex-start; } }
 
@@ -56,7 +56,7 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
-  max-width: 460px;
+  max-width: 100%;
   margin: 0 auto;
 }
 @media (min-width: 1024px) { .checks { margin: 0; } }
@@ -248,3 +248,16 @@
 
 /* CTA do card */
 .cardCta { width: 100%; justify-content: center; }
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .statBorder {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+}
