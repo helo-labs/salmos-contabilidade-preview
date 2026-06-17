@@ -1,0 +1,303 @@
+/* ─────────────────────────────────────────
+   TOKENS GLOBAIS
+   ───────────────────────────────────────── */
+:root {
+  /* Cores */
+  --bg:        #14171C;   /* fundo principal */
+  --bg-dark:   #0E1014;   /* fundo footer */
+  --bg-card:   #161a21;   /* fundo seções alternadas */
+  --surface:   #1F3856;   /* superfície de cards/painéis */
+  --gold:      #E9CA5E;   /* acento principal */
+  --gold-dim:  rgba(233, 202, 94, 0.15);
+  --gold-glow: rgba(233, 202, 94, 0.3);
+  --border:    rgba(255, 255, 255, 0.05);
+  --border-md: rgba(255, 255, 255, 0.10);
+
+  /* Texto */
+  --text-hi:   #f1f5f9;   /* slate-100 */
+  --text-mid:  #94a3b8;   /* slate-400 */
+  --text-lo:   #475569;   /* slate-600 */
+
+  /* Tipografia */
+  --font-title: 'Montserrat', sans-serif;
+  --font-sans:  'Plus Jakarta Sans', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
+
+/* ─────────────────────────────────────────
+   RESET E BASE
+   ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-hi);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Seleção de texto com a cor da marca */
+  ::selection { background: var(--gold); color: #000; }
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ─────────────────────────────────────────
+   GLOWS DECORATIVOS DE FUNDO
+   Posicionados absolutamente no wrapper raiz
+   ───────────────────────────────────────── */
+.glow-blue {
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.25) 0%, transparent 70%);
+}
+.glow-gold {
+  background: radial-gradient(circle, rgba(233, 202, 94, 0.08) 0%, transparent 70%);
+}
+
+/* ─────────────────────────────────────────
+   GLASSMORPHISM — card base e hover
+   ───────────────────────────────────────── */
+.glass {
+  background: rgba(31, 56, 86, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-hover {
+  transition: background 0.3s ease, border-color 0.3s ease,
+              box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glass-hover:hover {
+  background: rgba(31, 56, 86, 0.55);
+  border-color: rgba(233, 202, 94, 0.35);
+  box-shadow: 0 12px 40px -10px var(--gold-glow);
+  transform: translateY(-4px);
+}
+
+/* ─────────────────────────────────────────
+   UTILITÁRIOS DE TEXTO
+   ───────────────────────────────────────── */
+
+/* Label overline — estilo mono, maiúsculas, dourado */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Badge pill (seção header, "Como Ajudamos...", etc.) */
+.badge-gold {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(233, 202, 94, 0.05);
+  border: 1px solid rgba(233, 202, 94, 0.12);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* ─────────────────────────────────────────
+   BOTÕES
+   ───────────────────────────────────────── */
+
+/* Primário — fundo dourado, texto preto */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 16px;
+  box-shadow: 0 0 35px var(--gold-glow);
+  transition: background 0.25s, transform 0.15s;
+}
+.btn-primary:hover { background: #fff; transform: scale(1.04); }
+.btn-primary:active { transform: scale(0.97); }
+
+/* Secundário — fundo translúcido, borda dourada sutil */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-hi);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(233, 202, 94, 0.18);
+  border-radius: 16px;
+  transition: background 0.25s, border-color 0.25s, transform 0.15s;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(233, 202, 94, 0.35);
+}
+.btn-secondary:active { transform: scale(0.97); }
+
+/* Pequeno — usado dentro de cards e seções compactas */
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--gold);
+  color: #000;
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(233, 202, 94, 0.15);
+}
+.btn-sm:hover { background: #fff; }
+.btn-sm:active { transform: scale(0.97); }
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL
+   Ativado via JS (useReveal hook)
+   ───────────────────────────────────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sr.in { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+.d5 { transition-delay: 0.40s; }
+
+/* ─────────────────────────────────────────
+   BOTÃO FLUTUANTE DO WHATSAPP - pensando em revisá-lo...
+   ───────────────────────────────────────── */
+.wp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 25px rgba(233, 202, 94, 0.55);
+  transition: transform 0.2s;
+}
+.wp-float:hover  { transform: scale(1.1); }
+.wp-float:active { transform: scale(0.95); }
+
+/* Anel pulsante ao redor do botão */
+.wp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.25;
+  animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Tooltip ao hover (desktop) */
+.wp-float .tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: var(--bg);
+  border: 1px solid var(--border-md);
+  color: var(--text-hi);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.wp-float:hover .tooltip { opacity: 1; }
+
+/* Ponto de status pulsante (footer) */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 12px #22c55e;
+  animation: ping-dot 2s ease infinite;
+}
+
+/* ─────────────────────────────────────────
+   ÍCONE CHECK (hero + hero card)
+   ───────────────────────────────────────── */
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.10);
+  border: 1px solid rgba(34, 197, 94, 0.20);
+  color: #4ade80;
+  flex-shrink: 0;
+}
+.check-icon.gold {
+  background: rgba(233, 202, 94, 0.10);
+  border-color: rgba(233, 202, 94, 0.20);
+  color: var(--gold);
+}
+
+/* ─────────────────────────────────────────
+   ANIMAÇÕES KEYFRAMES
+   ───────────────────────────────────────── */
+@keyframes ping {
+  75%, 100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes ping-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT HELPER
+   ───────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 640px)  { .container { padding: 0 32px; } }
+@media (min-width: 1024px) { .container { padding: 0 48px; } }
+
+/* Divisor entre seções */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+}
