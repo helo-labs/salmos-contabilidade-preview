@@ -199,7 +199,7 @@ export const PILLARS = [
     title:       'Organização e Documentação',
     description:
       'Cuidamos das burocracias fiscais, documentações e auditorias para manter tudo correto com os órgãos reguladores.',
-    tagLeft:  'Auditoria Preventiva',
+    tagLeft:  'Auditoria',
     tagRight: 'Organização Total',
   },
 ]
