@@ -141,3 +141,8 @@
 .barLinks { display: flex; gap: 16px; }
 .barLinks span { cursor: pointer; transition: color 0.2s; }
 .barLinks span:hover { color: var(--text-mid); }
+
+.infoItem strong {
+  color: #fff;
+  font-weight: 600;
+}

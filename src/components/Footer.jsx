@@ -23,24 +23,54 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* ── Coluna 2: endereço e horário ── */}
-        <div className={s.info}>
-          <h4 className={s.colHead}>Contato & Localização</h4>
-          <div className={s.infoList}>
-            <span className={s.infoItem}>
-              <MapPin className={s.infoIcon} />
-              {CONTACT.address}
-            </span>
-            <a href={`tel:${CONTACT.phone.replace(/\D/g, '')}`} className={s.infoItem}>
-              <Phone className={s.infoIcon} />
-              {CONTACT.phone}
-            </a>
-            <a href={`mailto:${CONTACT.email}`} className={s.infoItem}>
-              <Mail className={s.infoIcon} />
-              {CONTACT.email}
-            </a>
-          </div>
-        </div>
+   {/* ── Coluna 2: unidades e contato ── */}
+<div className={s.info}>
+  <h4 className={s.colHead}>Unidades & Contato</h4>
+
+  <div className={s.infoList}>
+    <span className={s.infoItem}>
+      <MapPin className={s.infoIcon} />
+      <div>
+        <strong>Matriz</strong><br />
+        {CONTACT.address}
+      </div>
+    </span>
+
+    <span className={s.infoItem}>
+      <MapPin className={s.infoIcon} />
+      <div>
+        <strong>Filial Osasco</strong><br />
+        Rua Nelson Rodrigues, 347 - Jardim Helena Maria - Osasco/SP
+      </div>
+    </span>
+
+    <a
+      href={`tel:${CONTACT.phone.replace(/\D/g, '')}`}
+      className={s.infoItem}
+    >
+      <Phone className={s.infoIcon} />
+      {CONTACT.phone}
+    </a>
+
+    <a
+      href="https://wa.me/5511911612386"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={s.infoItem}
+    >
+      <Phone className={s.infoIcon} />
+      WhatsApp: (11) 91161-2386
+    </a>
+
+    <a
+      href="mailto:contato@salmoscontabilidade.com.br"
+      className={s.infoItem}
+    >
+      <Mail className={s.infoIcon} />
+      contato@salmoscontabilidade.com.br
+    </a>
+  </div>
+</div>
 
         {/* ── Coluna 3: redes sociais + CNPJ ── */}
         <div className={s.socials}>

@@ -72,7 +72,7 @@ export const HERO_CARD_CHECKS = [
   {
     title: 'Mais Controle',
     desc: 'Informações claras para decisões mais seguras e estratégicas.',
-    gold: true,
+    
   },
 ]
 
