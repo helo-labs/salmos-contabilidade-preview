@@ -21,7 +21,7 @@ export const WA_MSG = {
 
 // ── Informações de contato ───────────────────────────────────────────────────
 export const CONTACT = {
-  address: 'R. Albion, 620 — Lapa, São Paulo — SP',
+  address: 'Rua Afonso Sardinha, 407 - Lapa, São Paulo — SP',
   phone:   '+55 (11) 3832-9872',
   email:   ' Marcio.bueno@salmoscontabilidade.com.br',
   hours:   'Segunda a Sexta — 09h às 18h',
