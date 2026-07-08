@@ -10,6 +10,14 @@ const LINKS = [
   { label: 'Sobre Nós',      href: '#about-us'    },
 ]
 
+// Rola até a seção sem gravar o #hash na URL — assim um F5 ou um link
+// compartilhado sempre volta pro topo da página (Hero), em vez de pular
+// direto pra seção onde a pessoa estava.
+function scrollToSection(e, href) {
+  e.preventDefault()
+  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function Navbar() {
   const [solid, setSolid] = useState(false)
   const [open,  setOpen]  = useState(false)
@@ -39,7 +47,7 @@ export default function Navbar() {
         {/* ── Nav desktop ── */}
         <nav className={s.nav} aria-label="Navegação principal">
           {LINKS.map(l => (
-            <a key={l.href} href={l.href} className={s.link}>
+            <a key={l.href} href={l.href} className={s.link} onClick={(e) => scrollToSection(e, l.href)}>
               {l.label}
               <span className={s.underline} aria-hidden />
             </a>
@@ -75,7 +83,7 @@ export default function Navbar() {
       {/* ── Drawer mobile ── */}
       <div className={`${s.drawer} ${open ? s.drawerOpen : ''}`} aria-hidden={!open}>
         {LINKS.map(l => (
-          <a key={l.href} href={l.href} className={s.dlink} onClick={() => setOpen(false)}>
+          <a key={l.href} href={l.href} className={s.dlink} onClick={(e) => { scrollToSection(e, l.href); setOpen(false) }}>
             {l.label}
           </a>
         ))}
