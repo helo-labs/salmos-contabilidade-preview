@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MessageCircle, Menu, X, Facebook, Instagram, Linkedin } from './Icons'
+import { MessageCircle, Facebook, Instagram, Linkedin } from './Icons'
 import { wa, WA_MSG, SOCIAL } from '../constants'
 import logo from '../assets/salmos.png'
 import s from './Navbar.module.css'
@@ -76,7 +76,11 @@ export default function Navbar() {
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
         >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <span className={s.burgerWrap}>
+            <span className={`${s.bar} ${s.bar1} ${open ? s.bar1Open : ''}`} />
+            <span className={`${s.bar} ${s.bar2} ${open ? s.bar2Open : ''}`} />
+            <span className={`${s.bar} ${s.bar3} ${open ? s.bar3Open : ''}`} />
+          </span>
         </button>
       </div>
 
@@ -97,6 +101,11 @@ export default function Navbar() {
           <MessageCircle className="w-5 h-5" style={{ fill: '#000' }} />
           Fale com um Especialista
         </a>
+        <div className={s.dSocials}>
+          <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" className={s.social} title="Facebook"><Facebook className="w-4 h-4" /></a>
+          <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className={s.social} title="Instagram"><Instagram className="w-4 h-4" /></a>
+          <a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer" className={s.social} title="LinkedIn"><Linkedin className="w-4 h-4" /></a>
+        </div>
       </div>
     </header>
   )
